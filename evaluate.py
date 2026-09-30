@@ -1,6 +1,6 @@
 import sys
 import pandas as pd
-from rag import load_index, get_llm, retrieve, answer
+from rag import load_index, get_llm, retrieve, answer, rewrite
 
 IDK = "i don't know"
 
@@ -15,16 +15,17 @@ def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     label = args[0] if args else "run"
     retrieval_only = "--retrieval-only" in sys.argv
-    mode = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--mode=")), "hybrid")
-
+    mode = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--mode=")), "keyword")
+    use_rewrite = "--rewrite" in sys.argv
 
     questions = pd.read_csv("eval/questions.csv")
     index = load_index()
-    llm = None if retrieval_only else get_llm()
+    llm = get_llm() if (use_rewrite or not retrieval_only) else None
 
     rows = []
     for q in questions.itertuples():
-        results = retrieve(index, q.question, mode=mode)
+        search_query = rewrite(q.question, llm) if use_rewrite else None
+        results = retrieve(index, q.question, mode=mode, extra_query=search_query)
         answerable = pd.notna(q.expected_name)
 
         # Retrieval: was the expected opening among the retrieved ones?
@@ -37,7 +38,7 @@ def main():
 
         # Answer: does the reply contain the expected answer (or "I don't know")?
         reply, correct = "", None
-        if llm:
+        if not retrieval_only:
             reply = answer(q.question, results, llm)
             expected = q.expected_answer if answerable else IDK
             correct = norm(expected) in norm(reply)
@@ -47,7 +48,7 @@ def main():
         print(f"{q.id:>2}  {q.type:<14} retrieval {mark(hit)}  answer {mark(correct)}  best {best:.2f}  {q.question[:45]}")
 
         rows.append({
-            "id": q.id, "type": q.type, "question": q.question,
+            "id": q.id, "type": q.type, "question": q.question, "search_query": search_query,
             "retrieval_hit": hit, "answer_correct": correct, "best_distance": round(best, 3),
             "retrieved": " | ".join(f"{d.metadata['eco']} {d.metadata['name']}" for d, _ in results),
             "reply": reply,
@@ -55,9 +56,9 @@ def main():
 
     df = pd.DataFrame(rows)
     answerable = df[df.retrieval_hit.notna()]
-    print(f"\n=== {label} (mode: {mode}) ===")
+    print(f"\n=== {label} (mode: {mode}, rewrite: {use_rewrite}) ===")
     print(f"Retrieval: {int(answerable.retrieval_hit.sum())} / {len(answerable)} answerable questions found the right opening")
-    if llm:
+    if not retrieval_only:
         print(f"Answers:   {int(df.answer_correct.sum())} / {len(df)} correct")
     print("\nBy type:")
     print(df.groupby("type")[["retrieval_hit", "answer_correct"]].agg(lambda s: f"{int(s.sum())}/{s.notna().sum()}").to_string())

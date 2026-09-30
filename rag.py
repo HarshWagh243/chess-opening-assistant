@@ -16,7 +16,7 @@ CHAT_MODEL = "gpt-5.4-mini"
 K = 4          # how many openings the model sees
 POOL = 20      # how many candidates each search method returns before fusion
 MODE = "keyword"  # "vector", "keyword" or "hybrid"
-
+REWRITE = True
 PROMPT = """You are a chess opening assistant. Answer the question using ONLY the openings listed below.
 
 Rules:
@@ -26,6 +26,17 @@ Rules:
 
 Openings:
 {context}
+
+Question: {question}"""
+
+REWRITE_PROMPT = """You turn chess questions into search queries for a database of chess openings.
+The database only contains opening names (e.g. "Sicilian Defense: Najdorf Variation"),
+ECO codes (e.g. B90) and moves in standard notation (e.g. "e4 c5 Nf3 d6").
+
+Write a short search query that would find the right opening:
+- If you can tell which opening is meant, include its standard English name.
+- If the question describes moves, write them in standard notation (e.g. "the king moves on move 2" -> "Ke2").
+- Return only the query, nothing else.
 
 Question: {question}"""
 
@@ -95,14 +106,27 @@ def fuse(ranked_lists, c=60):
     return [(docs[key], scores[key]) for key in best]
 
 
-def retrieve(index, question, k=K, mode=MODE):
-    """Return the k best openings as (document, score) pairs."""
-    if mode == "vector":
-        return index["faiss"].similarity_search_with_score(question, k=k)  # score = distance, lower is better
-    if mode == "keyword":
-        return fuse([keyword_search(index, question, k)])[:k]
-    return fuse([vector_search(index, question, POOL), keyword_search(index, question, POOL)])[:k]
+def rewrite(question, llm):
+    """Ask the LLM to turn a question into names and moves the database actually contains."""
+    return llm.invoke(REWRITE_PROMPT.format(question=question)).text.strip()
 
+
+def retrieve(index, question, k=K, mode=MODE, extra_query=None):
+    """Return the k best openings as (document, score) pairs.
+
+    extra_query: an optional rewritten query, searched alongside the original question.
+    """
+    if mode == "vector" and not extra_query:
+        return index["faiss"].similarity_search_with_score(question, k=k)  # score = distance, lower is better
+
+    queries = [question] + ([extra_query] if extra_query else [])
+    ranked_lists = []
+    for q in queries:
+        if mode in ("keyword", "hybrid"):
+            ranked_lists.append(keyword_search(index, q, POOL))
+        if mode in ("vector", "hybrid"):
+            ranked_lists.append(vector_search(index, q, POOL))
+    return fuse(ranked_lists)[:k]
 
 def answer(question, results, llm):
     """Send the retrieved openings plus the question to the model."""
