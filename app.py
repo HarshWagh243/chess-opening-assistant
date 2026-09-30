@@ -29,6 +29,6 @@ if question:
     with st.expander("Openings the answer was based on"):
         for doc, score in results:
             st.markdown(
-                f"**{doc.metadata['eco']} · {doc.metadata['name']}** (distance {score:.2f})  \n"
+                f"**{doc.metadata['eco']} · {doc.metadata['name']}** (score {score:.2f})  \n"
                 f"`{doc.metadata['pgn']}`"
             )

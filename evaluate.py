@@ -15,6 +15,8 @@ def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     label = args[0] if args else "run"
     retrieval_only = "--retrieval-only" in sys.argv
+    mode = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--mode=")), "hybrid")
+
 
     questions = pd.read_csv("eval/questions.csv")
     index = load_index()
@@ -22,7 +24,7 @@ def main():
 
     rows = []
     for q in questions.itertuples():
-        results = retrieve(index, q.question)
+        results = retrieve(index, q.question, mode=mode)
         answerable = pd.notna(q.expected_name)
 
         # Retrieval: was the expected opening among the retrieved ones?
@@ -53,7 +55,7 @@ def main():
 
     df = pd.DataFrame(rows)
     answerable = df[df.retrieval_hit.notna()]
-    print(f"\n=== {label} ===")
+    print(f"\n=== {label} (mode: {mode}) ===")
     print(f"Retrieval: {int(answerable.retrieval_hit.sum())} / {len(answerable)} answerable questions found the right opening")
     if llm:
         print(f"Answers:   {int(df.answer_correct.sum())} / {len(df)} correct")
