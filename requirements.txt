@@ -1,0 +1,7 @@
+streamlit
+pandas
+python-dotenv
+rank_bm25
+langchain-openai
+langchain-community
+faiss-cpu
