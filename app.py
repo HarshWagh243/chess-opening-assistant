@@ -1,14 +1,11 @@
-from pathlib import Path
 import streamlit as st
 from rag import load_index, get_llm, retrieve, answer, rewrite, REWRITE
+
+MAX_QUESTIONS = 20  # per visitor session, so a public demo can't run up the API bill
 
 st.set_page_config(page_title="Chess Opening Assistant", page_icon="♟️")
 st.title("♟️ Chess Opening Assistant")
 st.caption("Answers come only from the Lichess openings database (3,815 openings).")
-
-if not Path("index").exists():
-    st.error("No index found. Run `python build_index.py` first.")
-    st.stop()
 
 
 @st.cache_resource  # load the index and model once, not on every question
@@ -17,10 +14,16 @@ def setup():
 
 
 index, llm = setup()
+st.session_state.setdefault("asked", 0)
 
-question = st.text_input("Ask about an opening", placeholder="e.g. What are the moves of the Ruy Lopez?")
+question = st.text_input("Ask about an opening", placeholder="e.g. What are the moves of the Ruy Lopez?", max_chars=200)
 
 if question:
+    if st.session_state.asked >= MAX_QUESTIONS:
+        st.warning("You've reached the question limit for this demo. Refresh the page later to ask more.")
+        st.stop()
+    st.session_state.asked += 1
+
     with st.spinner("Thinking..."):
         search_query = rewrite(question, llm) if REWRITE else None
         results = retrieve(index, question, extra_query=search_query)

@@ -72,15 +72,14 @@ def tokenize(text):
     text = re.sub(r"\d+\.", " ", text)  # drop move numbers like "1." or "12."
     return [w for w in re.findall(r"[a-z0-9]+", text) if w not in STOPWORDS]
 
-
-def load_index():
-    embeddings = OpenAIEmbeddings(model=EMBED_MODEL)
+def load_index(mode=MODE):
+    """Keyword search needs only the data files; the vector index is loaded only when needed."""
     docs = load_documents()
-    return {
-        "faiss": FAISS.load_local("index", embeddings, allow_dangerous_deserialization=True),
-        "bm25": BM25Okapi([tokenize(d.page_content) for d in docs]),
-        "docs": docs,
-    }
+    index = {"bm25": BM25Okapi([tokenize(d.page_content) for d in docs]), "docs": docs, "faiss": None}
+    if mode in ("vector", "hybrid"):
+        embeddings = OpenAIEmbeddings(model=EMBED_MODEL)
+        index["faiss"] = FAISS.load_local("index", embeddings, allow_dangerous_deserialization=True)
+    return index
 
 
 def get_llm():

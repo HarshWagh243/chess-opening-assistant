@@ -20,7 +20,7 @@ def main():
 
     questions_file = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--questions=")), "eval/questions.csv")
     questions = pd.read_csv(questions_file)
-    index = load_index()
+    index = load_index(mode)
     llm = get_llm() if (use_rewrite or not retrieval_only) else None
 
     rows = []
