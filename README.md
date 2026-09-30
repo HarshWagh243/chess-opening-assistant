@@ -2,7 +2,7 @@
 
 Ask about any chess opening in plain English, even with typos or a young student's wording, and get the moves and ECO code, with the source shown for every answer. It answers **only** from the [Lichess openings database](https://github.com/lichess-org/chess-openings) (3,815 openings) and says "I don't know" instead of guessing.
 
-**Live demo:** [add your Streamlit link here]
+**Live demo:** (https://chess-opening-assistant.streamlit.app/)
 
 I'm a chess coach, and I built this to learn retrieval-augmented generation (RAG) properly: build a baseline, measure it, and improve it one experiment at a time.
 
