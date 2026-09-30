@@ -1,0 +1,35 @@
+id,type,question,search_query,retrieval_hit,answer_correct,best_distance,retrieved,reply
+1,exact_name,What are the moves of the Ruy Lopez?,Ruy Lopez,True,True,0.033,C60 Ruy Lopez | C60 Ruy Lopez: Alapin Defense | C60 Ruy Lopez: Brentano Gambit | C60 Ruy Lopez: Bulgarian Variation,"[C60, Ruy Lopez] 1. e4 e5 2. Nf3 Nc6 3. Bb5"
+2,typo,fried livr attack moves,Fried Liver Attack,True,True,0.032,"B00 Fried Fox Defense | C50 Italian Game: Anti-Fried Liver Defense | C57 Italian Game: Two Knights Defense, Fried Liver Attack | A01 Nimzo-Larsen Attack: Graz Attack","[C57, Italian Game: Two Knights Defense, Fried Liver Attack] 1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nxd5 6. Nxf7"
+3,moves_to_name,What opening is 1. e4 e5 2. Nf3 Nc6 3. Bc4?,Italian Game,True,True,0.033,C50 Italian Game | C50 Italian Game: Giuoco Piano | C50 Italian Game: Hungarian Defense | C50 Italian Game: Paris Defense,"[C50, Italian Game] 1. e4 e5 2. Nf3 Nc6 3. Bc4"
+4,description,Which Sicilian variation has Black playing a6 on move 5?,Sicilian Defense: Najdorf Variation a6 on move 5,True,True,0.029,"B90 Sicilian Defense: Najdorf Variation, Yates Variation | B91 Sicilian Defense: Najdorf Variation, Zagreb Variation | A04 Zukertort Opening: Black Mustang Defense | B90 Sicilian Defense: Najdorf Variation","[B90, Sicilian Defense: Najdorf Variation] 1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6"
+5,not_in_data,Who invented the Najdorf Variation?,Sicilian Defense: Najdorf Variation,,True,0.033,"B90 Sicilian Defense: Najdorf Variation, Yates Variation | B91 Sicilian Defense: Najdorf Variation, Zagreb Variation | B90 Sicilian Defense: Najdorf Variation | B92 Sicilian Defense: Najdorf Variation, Opocensky Variation",I don’t know - that isn't in my openings database.
+6,exact_name,Show me the moves of the Grünfeld Defense,Grünfeld Defense,True,True,0.033,"A16 English Opening: Anglo-Grünfeld Defense | D80 Grünfeld Defense | D83 Grünfeld Defense: Brinckmann Attack, Grünfeld Gambit | D83 Grünfeld Defense: Brinckmann Attack, Grünfeld Gambit, Capablanca Variation","[D80, Grünfeld Defense] 1. d4 Nf6 2. c4 g6 3. Nc3 d5"
+7,exact_name,What are the moves of the Evans Gambit?,Evans Gambit e4 e5 Nf3 Nc6 Bc4 Bc5 b4,True,True,0.033,C51 Italian Game: Evans Gambit | C51 Italian Game: Evans Gambit Accepted | C51 Italian Game: Evans Gambit Declined | C51 Italian Game: Evans Gambit Declined,"[C51, Italian Game: Evans Gambit] 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4"
+8,exact_name,How does the Najdorf main line go?,Sicilian Defense: Najdorf Variation main line,True,True,0.033,"B99 Sicilian Defense: Najdorf Variation, Main Line | B90 Sicilian Defense: Najdorf Variation | B94 Sicilian Defense: Najdorf Variation | B90 Sicilian Defense: Najdorf Variation, Yates Variation","[B99, Sicilian Defense: Najdorf Variation, Main Line] 1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Bg5 e6 7. f4 Be7 8. Qf3 Qc7 9. O-O-O Nbd7"
+9,typo,grunfeld moves,Grünfeld Defense moves,True,True,0.032,"D83 Grünfeld Defense: Brinckmann Attack, Grünfeld Gambit | A16 English Opening: Anglo-Grünfeld Defense | D83 Grünfeld Defense: Brinckmann Attack, Grünfeld Gambit, Capablanca Variation | D80 Grünfeld Defense","[D80, Grünfeld Defense] 1. d4 Nf6 2. c4 g6 3. Nc3 d5"
+10,typo,scandinavian defence,Scandinavian Defense,True,True,0.033,B01 Scandinavian Defense | B01 Scandinavian Defense | A10 English Opening: Anglo-Scandinavian Defense | B01 Scandinavian Defense: Zilbermints Gambit,"[B01, Scandinavian Defense] 1. e4 d5"
+11,typo,Jobava London moves,Jobava London System,True,True,0.033,"D01 Rapport-Jobava System | D01 Rapport-Jobava System | D01 Rapport-Jobava System | D01 Rapport-Jobava System, with e6","[D01, Rapport-Jobava System] 1. d4 d5 2. Nc3 Nf6 3. Bf4
+
+[D01, Rapport-Jobava System] 1. d4 d5 2. Nc3 Nf6 3. Bf4 e6
+
+[D01, Rapport-Jobava System] 1. d4 d5 2. Nc3 Nf6 3. Bf4 g6
+
+[D01, Rapport-Jobava System, with e6] 1. d4 d5 2. Nc3 e6 3. Bf4"
+12,moves_to_name,e4 e5 f4 - what's this opening called?,King's Gambit,True,True,0.032,C30 King's Gambit | C33 King's Gambit Accepted | C34 King's Gambit Accepted: King's Knight's Gambit | C34 King's Gambit Accepted: King's Knight's Gambit,"[C30, King's Gambit] 1. e4 e5 2. f4"
+13,moves_to_name,What opening is 1.d4 Nf6 2.c4 e6 3.Nc3 Bb4?,Nimzo-Indian Defense,True,True,0.033,E20 Nimzo-Indian Defense | E20 Nimzo-Indian Defense: Dilworth Gambit | E20 Nimzo-Indian Defense: Kmoch Variation | E20 Nimzo-Indian Defense: Mikenas Attack,"[E20, Nimzo-Indian Defense] 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4"
+14,moves_to_name,I played 1. e4 c5 2. d4 cxd4 3. c3 - what gambit is this?,Smith-Morra Gambit,True,True,0.033,"B21 Sicilian Defense: Smith-Morra Gambit | B21 Sicilian Defense: Smith-Morra Gambit Accepted | B40 Sicilian Defense: Smith-Morra Gambit Deferred | B21 Sicilian Defense: Smith-Morra Gambit Declined, Alapin Formation","[B21, Sicilian Defense: Smith-Morra Gambit] 1. e4 c5 2. d4 cxd4 3. c3"
+15,eco,What is the ECO code for the Stafford Gambit?,Stafford Gambit ECO code,True,True,0.033,C42 Petrov's Defense: Stafford Gambit | C42 Petrov's Defense: Stafford Gambit Accepted | C42 Petrov's Defense: Stafford Gambit Accepted | C42 Petrov's Defense: Stafford Gambit Accepted,"[C42, Petrov's Defense: Stafford Gambit] 1. e4 e5 2. Nf3 Nf6 3. Nxe5 Nc6"
+16,eco,Which opening does ECO code C25 refer to?,C25 Malmö Gambit,True,True,0.033,C25 Vienna Game | C25 Vienna Game: Fyfe Gambit | C25 Vienna Game: Anderssen Defense | C25 Vienna Game: Omaha Gambit,"[C25, Vienna Game] 1. e4 e5 2. Nc3"
+17,description,What's the fastest possible checkmate called?,fastest possible checkmate Fool's Mate,True,True,0.032,"A00 Amar Opening | A00 Amar Opening: Paris Gambit | A00 Amar Opening: Paris Gambit, Gent Gambit | A00 Barnes Opening: Fool's Mate","[A00, Barnes Opening: Fool's Mate] 1. f3 e5 2. g4 Qh4#"
+18,description,Which opening has White moving the king on move 2?,Ke2,True,True,0.029,B20 Sicilian Defense: King David's Opening | C20 King's Pawn Game: King's Head Opening | C20 Bongcloud Attack | C20 King's Pawn Game: King's Head Opening,"[C20, Bongcloud Attack] 1. e4 e5 2. Ke2
+
+[B20, Sicilian Defense: King David's Opening] 1. e4 c5 2. Ke2"
+19,not_in_data,What is White's win rate in the Caro-Kann?,Caro-Kann Defense,,True,0.033,B10 Caro-Kann Defense | B10 Caro-Kann Defense | B12 Caro-Kann Defense | B10 Caro-Kann Defense,I don't know - that isn't in my openings database.
+20,not_in_data,Is the King's Gambit a good opening for beginners?,King's Gambit,,False,0.033,C34 King's Gambit Accepted: King's Knight's Gambit | C34 King's Gambit Accepted: King's Knight's Gambit | C37 King's Gambit Accepted: King's Knight's Gambit | C39 King's Gambit Accepted: King's Knight's Gambit,"[ C34, King's Gambit Accepted: King's Knight's Gambit ] 1. e4 e5 2. f4 exf4 3. Nf3
+
+[ C34, King's Gambit Accepted: King's Knight's Gambit ] 1. e4 e5 2. f4 exf4 3. Nf3 g5
+
+[ C37, King's Gambit Accepted: King's Knight's Gambit ] 1. e4 e5 2. f4 exf4 3. Nf3 g5 4. Bc4
+
+[ C39, King's Gambit Accepted: King's Knight's Gambit ] 1. e4 e5 2. f4 exf4 3. Nf3 g5 4. h4"

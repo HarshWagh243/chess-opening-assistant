@@ -18,7 +18,8 @@ def main():
     mode = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--mode=")), "keyword")
     use_rewrite = "--rewrite" in sys.argv
 
-    questions = pd.read_csv("eval/questions.csv")
+    questions_file = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--questions=")), "eval/questions.csv")
+    questions = pd.read_csv(questions_file)
     index = load_index()
     llm = get_llm() if (use_rewrite or not retrieval_only) else None
 

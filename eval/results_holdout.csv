@@ -1,0 +1,20 @@
+id,type,question,search_query,retrieval_hit,answer_correct,best_distance,retrieved,reply
+101,moves_to_name,my brother played pawn to e4 and i played pawn to c5 whats that called,Sicilian Defense e4 c5,True,True,0.016,B00 King's Pawn Game | B20 Sicilian Defense | C20 King's Pawn Game | B27 Sicilian Defense,"[B20, Sicilian Defense] 1. e4 c5"
+102,typo,how do you play the frentch defence,French Defense,True,True,0.016,A00 Amar Opening | C00 French Defense | A00 Amar Opening: Paris Gambit | C00 French Defense: Mediterranean Defense,"[C00, French Defense] 1. e4 e6"
+103,description,the one where the queen comes out super early on move 2 and attacks,Early Queen Attack Qh5,False,False,0.031,"A14 English Opening: Agincourt Defense, Neo-Catalan Declined, Early b3 | B75 Sicilian Defense: Dragon Variation, Yugoslav Attack, Early Deviations | A14 English Opening: Agincourt Defense, Neo-Catalan Declined, Early b3 | A14 English Opening: Agincourt Defense, Neo-Catalan Declined, Early b3",I don't know - that isn't in my openings database.
+104,typo,carro can moves pls,Caro-Kann Defense,True,True,0.016,A00 Amar Opening | B10 Caro-Kann Defense | A00 Amar Opening: Paris Gambit | B10 Caro-Kann Defense,"[B10, Caro-Kann Defense] 1. e4 c6  
+[B10, Caro-Kann Defense] 1. e4 c6 2. Nc3"
+105,exact_name,what is queens gambit like the show,Queen's Gambit Declined,False,True,0.03,"D06 Queen's Gambit Declined: Zilbermints Gambit | C33 King's Gambit Accepted: Bishop's Gambit, Gianutio Gambit | D31 Queen's Gambit Declined: Queen's Knight Variation | C33 King's Gambit Accepted: Bishop's Gambit, Kieseritzky Gambit","[D06, Queen's Gambit Declined: Zilbermints Gambit] 1. d4 d5 2. c4 b5
+
+[D31, Queen's Gambit Declined: Queen's Knight Variation] 1. d4 d5 2. c4 e6 3. Nc3"
+106,exact_name,whats the dragon opening,Sicilian Defense: Dragon Variation,True,True,0.033,"B54 Sicilian Defense: Dragon Variation, Accelerated Dragon | B75 Sicilian Defense: Dragon Variation, Yugoslav Attack, Hungarian Dragon | B70 Sicilian Defense: Dragon Variation | B27 Sicilian Defense: Hyperaccelerated Dragon","[B70, Sicilian Defense: Dragon Variation] 1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6
+
+[B27, Sicilian Defense: Hyperaccelerated Dragon] 1. e4 c5 2. Nf3 g6
+
+[B54, Sicilian Defense: Dragon Variation, Accelerated Dragon] 1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 g6"
+107,moves_to_name,what if i move my horsey out first to f3,Nf3,False,False,0.016,"C33 King's Gambit Accepted: Bishop's Gambit, First Jaenisch Variation | C42 Petrov's Defense | A00 Barnes Opening | C42 Petrov's Defense","[C42, Petrov's Defense] 1. e4 e5 2. Nf3 Nf6 3. Nxe5 d6 4. Nf3"
+108,not_in_data,whats scholars mate,Scholar's Mate,,True,0.033,A00 Barnes Opening: Fool's Mate | C44 Scotch Game: Sea-Cadet Mate | A00 Amar Opening | A00 Amar Opening: Paris Gambit,I don't know - that isn't in my openings database.
+109,not_in_data,how many points is a knight worth,Knight value chess piece,,True,0.033,C40 King's Knight Opening | C00 French Defense: Knight Variation | C00 French Defense: Queen's Knight | C44 King's Knight Opening: Konstantinopolsky,I don't know - that isn't in my openings database.
+110,not_in_data,what opening does magnus carlsen play,Magnus Carlsen repertoire,,False,0.033,"B23 Sicilian Defense: Closed, Carlsen Variation | B57 Sicilian Defense: Magnus Smith Trap | D35 Queen's Gambit Declined: Exchange Variation, Carlsen Variation | A00 Amar Opening","[B23, Sicilian Defense: Closed, Carlsen Variation] 1. e4 c5 2. Nc3 d6 3. d4 cxd4 4. Qxd4 Nc6 5. Qd2
+
+[D35, Queen's Gambit Declined: Exchange Variation, Carlsen Variation] 1. d4 Nf6 2. c4 e6 3. Nc3 d5 4. cxd5 exd5 5. Bg5 Be7 6. e3 h6 7. Bh4 Bg4"

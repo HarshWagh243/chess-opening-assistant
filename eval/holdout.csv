@@ -1,0 +1,11 @@
+id,type,question,expected_eco,expected_name,expected_answer,edge_case
+101,moves_to_name,my brother played pawn to e4 and i played pawn to c5 whats that called,B20,Sicilian Defense,Sicilian Defense,Moves described in words not notation
+102,typo,how do you play the frentch defence,C00,French Defense,1. e4 e6,Misspelling + British spelling
+103,description,the one where the queen comes out super early on move 2 and attacks,C20,King's Pawn Game: Wayward Queen Attack,1. e4 e5 2. Qh5,Kid's description; name is nested under King's Pawn Game
+104,typo,carro can moves pls,B10,Caro-Kann Defense,1. e4 c6,Spelled the way it sounds
+105,exact_name,what is queens gambit like the show,D06,Queen's Gambit,1. d4 d5 2. c4,Missing apostrophe + distracting reference to the TV show
+106,exact_name,whats the dragon opening,B70,Sicilian Defense: Dragon Variation,1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6,Nickname without the parent opening
+107,moves_to_name,what if i move my horsey out first to f3,A04,Zukertort Opening,Zukertort Opening,Horsey = knight; one move only
+108,not_in_data,whats scholars mate,,,I don't know,Famous but NOT in this database - the model knows it and will be tempted
+109,not_in_data,how many points is a knight worth,,,I don't know,Chess question but not about openings
+110,not_in_data,what opening does magnus carlsen play,,,I don't know,Players are not in the data
