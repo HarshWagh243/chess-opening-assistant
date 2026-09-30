@@ -1,0 +1,21 @@
+id,type,question,expected_eco,expected_name,expected_answer,edge_case
+1,exact_name,What are the moves of the Ruy Lopez?,C60,Ruy Lopez,1. e4 e5 2. Nf3 Nc6 3. Bb5,Easy baseline
+2,typo,fried livr attack moves,C57,"Italian Game: Two Knights Defense, Fried Liver Attack",1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nxd5 6. Nxf7,Misspelling + lowercase + name nested under a parent opening
+3,moves_to_name,What opening is 1. e4 e5 2. Nf3 Nc6 3. Bc4?,C50,Italian Game,Italian Game,Moves only
+4,description,Which Sicilian variation has Black playing a6 on move 5?,B90,Sicilian Defense: Najdorf Variation,1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6,Described not named
+5,not_in_data,Who invented the Najdorf Variation?,,,I don't know,History is not in the data
+6,exact_name,Show me the moves of the Grünfeld Defense,D80,Grünfeld Defense,1. d4 Nf6 2. c4 g6 3. Nc3 d5,Special character (ü) in the name
+7,exact_name,What are the moves of the Evans Gambit?,C51,Italian Game: Evans Gambit,1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4,Stored as a sub-variation of the Italian Game
+8,exact_name,How does the Najdorf main line go?,B99,"Sicilian Defense: Najdorf Variation, Main Line",1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Bg5 e6 7. f4 Be7 8. Qf3 Qc7 9. O-O-O Nbd7,30+ Najdorf rows compete; only one is the Main Line
+9,typo,grunfeld moves,D80,Grünfeld Defense,1. d4 Nf6 2. c4 g6 3. Nc3 d5,No umlaut: keyword search finds 0 rows
+10,typo,scandinavian defence,B01,Scandinavian Defense,1. e4 d5,British spelling + lowercase
+11,typo,Jobava London moves,D01,Rapport-Jobava System,1. d4 d5 2. Nc3 Nf6 3. Bf4,Popular nickname differs from the dataset name
+12,moves_to_name,e4 e5 f4 - what's this opening called?,C30,King's Gambit,King's Gambit,No move numbers
+13,moves_to_name,What opening is 1.d4 Nf6 2.c4 e6 3.Nc3 Bb4?,E20,Nimzo-Indian Defense,Nimzo-Indian Defense,No space after move numbers
+14,moves_to_name,I played 1. e4 c5 2. d4 cxd4 3. c3 - what gambit is this?,B21,Sicilian Defense: Smith-Morra Gambit,Sicilian Defense: Smith-Morra Gambit,Conversational phrasing around the moves
+15,eco,What is the ECO code for the Stafford Gambit?,C42,Petrov's Defense: Stafford Gambit,C42,Stored under Petrov's Defense
+16,eco,Which opening does ECO code C25 refer to?,C25,Vienna Game,Vienna Game,Reverse lookup: code to name
+17,description,What's the fastest possible checkmate called?,A00,Barnes Opening: Fool's Mate,1. f3 e5 2. g4 Qh4#,No shared words with the answer
+18,description,Which opening has White moving the king on move 2?,C20,Bongcloud Attack,1. e4 e5 2. Ke2,Needs reasoning about the moves
+19,not_in_data,What is White's win rate in the Caro-Kann?,,,I don't know,Looks answerable but stats are not in the data
+20,not_in_data,Is the King's Gambit a good opening for beginners?,,,I don't know,Opinion: the model will be tempted to answer from its own knowledge
